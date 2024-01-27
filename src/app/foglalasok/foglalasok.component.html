@@ -1,0 +1,19 @@
+<ng-container *ngIf="!error; else hiba">
+    <div  class="row my-2">
+        <div *ngFor="let oszlop of oszlopok" class="col fw-bold">
+            {{oszlop.text}}
+        </div>
+    </div>
+
+    <div *ngFor="let foglalas of foglalasok|sort" class="row my-1">
+        <div *ngFor="let oszlop of oszlopok" class="col">
+            {{foglalas[oszlop.key]}}
+        </div>
+    </div>
+
+</ng-container>
+<ng-template #hiba>
+    <div class="alert alert-danger" role="alert">
+       {{errorMessage}}
+      </div>
+</ng-template>
